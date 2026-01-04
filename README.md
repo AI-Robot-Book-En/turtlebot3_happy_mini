@@ -1,25 +1,25 @@
 # TurtleBot3 Happy Mini 
-## 概　要
-次のturtlebot3リポジトリをコピーしてhappy miniのモデル(URDF, Mesh)を追加した。ロボット台車のパラメータはwaffle_piと同じである。  
+## Overview
+This project is based on a copy of the following TurtleBot3 repository, with the Happy Mini model (URDF and meshes) added. The mobile base parameters are the same as `waffle_pi`.  
 - [ROBOTIS-GIT turtlebot3](https://github.com/ROBOTIS-GIT/turtlebot3.git)
 
-## 追加・変更箇所
+## Additions / Changes
 - turtlebot3_simulations/turtlebot3_gazebo/models/turtlebot3_happy_mini
 - turtlebot3_simulations/turtlebot3_gazebo/urdf/turtlebot3_happy_mini.urdf
 - turtlebot3_simulations/turtlebot3_gazebo/launch/spawn2_turtlebot3.launch.py
 - turtlebot3_simulations/turtlebot3_gazebo/launch/turtlebot3_house2.launch.py
 
-## 環　境  
-- ROS2 Humble
+## Environment  
+- ROS 2 Humble
 
-## インストール  
-- GazeboをROSで使うためのパッケージのインストール
+## Installation  
+- Install packages required to use Gazebo with ROS
 ```
 $ source ~/.bashrc
 $ sudo apt install ros-humble-gazebo-*
 $ sudo apt install ros-humble-gazebo-ros-pkgs
 ```
-- Happy Mini関連パッケージのインストール
+- Install Happy Mini–related packages
 ```
 $ cd ~/airobot_ws/src
 $ git clone https://github.com/AI-Robot-Book-Humble/turtlebot3_happy_mini
@@ -28,7 +28,7 @@ $ colcon build
 ```
 
 
-## 実行
+## Run
 1. Empty World  
 ![happy mini empty world](https://github.com/demulab/happy_mini_turtlebot3_sim/blob/main/happy_mini_empty_world.png "happy mini empty world")
 
@@ -50,30 +50,28 @@ $ ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
 $ export TURTLEBOT3_MODEL=happy_mini
 $ ros2 launch turtlebot3_gazebo turtlebot3_house.launch.py
 ```
-4. ロボットモデルの変更
-- Waffle Piを使う場合
+4. Switching the robot model
+- To use Waffle Pi
 ```
 $ export TURTLEBOT3_MODEL=waffle_pi
 ```
 
-5. ロボット初期位置の変更方法
+5. How to change the robot’s initial position
 ```
-$ ros2 launch turtlebot3_gazebo turtlebot3_house.launch.py　x_pose:=初期位置のx座標 y_pose:=初期位置のy座標
-```
-
-6. ロボット初期姿勢の変更方法  
-turtlebot3_house.launch.pyで初期向きを設定できるように改良したturtlebot3_house2.launch.pyを使ってください．  
-
-```
-$ ros2 launch turtlebot3_gazebo turtlebot3_house2.launch.py　x_pose:=初期位置のx座標 y_pose:=初期位置のy座標 yaw_pose:=初期向きのYaw角
+$ ros2 launch turtlebot3_gazebo turtlebot3_house.launch.py　x_pose:=<initial_x> y_pose:=<initial_y>
 ```
 
-## 履歴
-- 2024-10-13: 初期版
+6. How to change the robot’s initial orientation  
+Use turtlebot3_house2.launch.py, which is an improved version of turtlebot3_house.launch.py that allows you to set the initial heading.  
 
-## ライセンス
+```
+$ ros2 launch turtlebot3_gazebo turtlebot3_house2.launch.py　x_pose:=<initial_x> y_pose:=<initial_y> yaw_pose:=<initial_yaw>
+```
+
+## History
+- 2025-01-04: Translated the README from Japanese to English
+- 2024-10-13: Initial release
+
+
+## License
 Apache License 2.0 license found in the LICENSE file in the root directory of this project.
-
-
-## 参考文献
-- 今のところありません
